@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yassir ESSABAHY - Game Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <span class="nav-mark">YG</span>
+    <span>Yessir Games</span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-links" id="primary-navigation">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#systems">Systems</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <div class="hero-brand">
+      <span class="brand-text">Yessir Games</span>
+    </div>
+    <div class="hero-label">Game Developer - Morocco</div>
+    <div class="hero-name-row">
+      <h1 class="hero-name">Yassir<br><span>ESSABAHY</span></h1>
+      <div class="hero-profile" role="img" aria-label="Profile image of Yassir ESSABAHY">
+        <div class="hero-profile-photo"></div>
+      </div>
+    </div>
+    <div class="hero-title">Unity / C# / Blender / Game Design</div>
+    <p class="hero-desc">
+      Building immersive gameplay experiences - from psychological horror simulations to physics-based mobile arcades. I craft gameplay systems, 3D assets, and atmospheric worlds that draw players in.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Games Built</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2+</div>
+      <div class="stat-label">Years Dev</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Certificates</div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span class="scroll-line"></span>
+    Scroll
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header reveal">
+    <span class="section-num">01 //</span>
+    <h2 class="section-title">Projects</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- Featured: Pharmacy Night Shift -->
+    <div class="project-card featured horror reveal">
+      <div>
+        <div class="project-tag">Latest / PC / Horror</div>
+        <h3 class="project-name">Pharmacy Night Shift</h3>
+        <div class="project-type">PSYCHOLOGICAL HORROR SIMULATION</div>
+        <p class="project-desc">
+          A PSX-styled horror simulation set during a lonely night shift at a pharmacy. Interact with strange customers, manage prescriptions - while tension slowly builds into something deeply unsettling.
+        </p>
+        <ul class="project-features">
+          <li>Core gameplay built in C# - interaction logic & progression systems</li>
+          <li>All PSX-inspired 3D assets produced in Blender with custom texture wrapping</li>
+          <li>UI System, prescription logic, and atmospheric event triggers</li>
+        </ul>
+        <div class="project-stack">
+          <span class="stack-tag">Unity 6.3</span>
+          <span class="stack-tag">C#</span>
+          <span class="stack-tag">Blender</span>
+          <span class="stack-tag">PSX Style</span>
+          <span class="stack-tag">UI System</span>
+        </div>
+        <div class="project-date">02.2026 - 04.2026</div>
+        <div class="project-links">
+          <a href="#" class="project-link" aria-label="Source code for Pharmacy Night Shift">Source Code</a>
+          <a href="#" class="project-link" aria-label="itch.io page for Pharmacy Night Shift">itch.io</a>
+        </div>
+      </div>
+      <div class="project-visual">
+        <figure class="project-cover project-cover-featured">
+          <img src="assets/PharmacyNightShift.png" alt="Pharmacy Night Shift project cover">
+        </figure>
+      </div>
+    </div>
+
+    <!-- FlipThatCan -->
+    <div class="project-card reveal">
+      <figure class="project-cover">
+        <img src="assets/FlipThatCan.png" alt="FlipThatCan project cover">
+      </figure>
+      <div class="project-tag">Mobile / Arcade</div>
+      <h3 class="project-name">FlipThatCan</h3>
+      <div class="project-type">PHYSICS-BASED BOUNCING GAME</div>
+      <p class="project-desc">
+        A fast mobile arcade game where players control a bouncing can through increasingly tricky environments. Custom 2D assets, tight physics feel.
+      </p>
+      <ul class="project-features">
+        <li>Physics-based mechanics using Unity physics engine</li>
+        <li>Custom 2D pixel art assets designed in Aseprite</li>
+        <li>Mobile-optimized for smooth performance</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">Unity</span>
+        <span class="stack-tag">C#</span>
+        <span class="stack-tag">Aseprite</span>
+        <span class="stack-tag">Mobile</span>
+      </div>
+      <div class="project-date">01.2026 - 02.2026</div>
+      <div class="project-links">
+        <a href="#" class="project-link" aria-label="Source code for FlipThatCan">Source Code</a>
+        <a href="#" class="project-link" aria-label="itch.io page for FlipThatCan">itch.io</a>
+      </div>
+    </div>
+
+    <!-- Blank Project -->
+    <div class="project-card reveal">
+      <figure class="project-cover">
+        <img src="assets/ReportProtocol.png" alt="Report Protocol project cover">
+      </figure>
+      <div class="project-tag">Project Type</div>
+      <h3 class="project-name">Project Name</h3>
+      <div class="project-type">PROJECT CATEGORY</div>
+      <p class="project-desc">
+        Add a short description for this project here.
+      </p>
+      <ul class="project-features">
+        <li>Add a key feature or responsibility</li>
+        <li>Add another gameplay, design, or technical detail</li>
+        <li>Add tools, systems, or production notes</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">Tool</span>
+        <span class="stack-tag">Tech</span>
+        <span class="stack-tag">Platform</span>
+      </div>
+      <div class="project-date">MM.YYYY - MM.YYYY</div>
+      <div class="project-links">
+        <a href="#" class="project-link" aria-label="Source code for blank project">Source Code</a>
+        <a href="#" class="project-link" aria-label="itch.io page for blank project">itch.io</a>
+      </div>
+    </div>
+
+    <!-- DrDance -->
+    <div class="project-card reveal">
+      <figure class="project-cover">
+        <img src="assets/DrDance.png" alt="DrDance project cover">
+      </figure>
+      <div class="project-tag">Mobile / Arcade</div>
+      <h3 class="project-name">DrDance</h3>
+      <div class="project-type">FLAPPY BIRD STYLE GAME</div>
+      <p class="project-desc">
+        A fast-paced endless arcade game inspired by Flappy Bird. Navigate obstacles with rhythm and precision - real-time score tracking keeps the tension high.
+      </p>
+      <ul class="project-features">
+        <li>Player controls, obstacle spawning & score tracking</li>
+        <li>Clean 2D Unity physics and UI system integration</li>
+        <li>Mobile build with performance optimization</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">Unity</span>
+        <span class="stack-tag">C#</span>
+        <span class="stack-tag">Physics</span>
+        <span class="stack-tag">UI System</span>
+      </div>
+      <div class="project-date">01.2026 - 02.2026</div>
+      <div class="project-links">
+        <a href="#" class="project-link" aria-label="Source code for DrDance">Source Code</a>
+        <a href="#" class="project-link" aria-label="itch.io page for DrDance">itch.io</a>
+      </div>
+    </div>
+
+    <!-- Recording 02:17 -->
+    <div class="project-card horror reveal">
+      <figure class="project-cover">
+        <img src="assets/Recording.png" alt="Recording 02:17 project cover">
+      </figure>
+      <div class="project-tag">PC / Horror</div>
+      <h3 class="project-name">Recording 02:17</h3>
+      <div class="project-type">PSYCHOLOGICAL HORROR GAME</div>
+      <p class="project-desc">
+        A horror experience set inside mysterious environments. The player uncovers hidden events through exploration and environmental storytelling.
+      </p>
+      <ul class="project-features">
+        <li>Built psychological horror prototype in Unity</li>
+        <li>Atmosphere-driven gameplay with player interactions & scene triggers</li>
+        <li>Level design and C# scripting</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">Unity</span>
+        <span class="stack-tag">C#</span>
+        <span class="stack-tag">Level Design</span>
+      </div>
+      <div class="project-date">11.2025 - 01.2026</div>
+      <div class="project-links">
+        <a href="#" class="project-link" aria-label="Source code for Recording 02:17">Source Code</a>
+        <a href="#" class="project-link" aria-label="itch.io page for Recording 02:17">itch.io</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROTOTYPES & SYSTEMS -->
+<section id="systems">
+  <div class="section-header reveal">
+    <span class="section-num">02 //</span>
+    <h2 class="section-title">Prototypes & Systems</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="systems-grid certs-row">
+    <div class="system-card reveal">
+      <div class="system-tag">Unity / C#</div>
+      <h3 class="system-name">Interaction System</h3>
+      <p class="system-desc">
+        Reusable object interaction setup for inspecting items, triggering events, and connecting player actions to UI prompts.
+      </p>
+    </div>
+
+    <div class="system-card reveal">
+      <div class="system-tag">Gameplay Logic</div>
+      <h3 class="system-name">Prescription Logic</h3>
+      <p class="system-desc">
+        Validation flow for customer requests, medicine choices, UI feedback, and progression events in a horror simulation loop.
+      </p>
+    </div>
+
+    <div class="system-card reveal">
+      <div class="system-tag">Mobile / Physics</div>
+      <h3 class="system-name">Arcade Controller</h3>
+      <p class="system-desc">
+        Tap-based movement and bounce tuning for fast mobile gameplay, focused on readable physics and responsive feel.
+      </p>
+    </div>
+
+    <div class="system-card reveal">
+      <div class="system-tag">Level Design</div>
+      <h3 class="system-name">Atmospheric Triggers</h3>
+      <p class="system-desc">
+        Scene trigger patterns for pacing horror events, environmental storytelling, sound cues, and player exploration beats.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header reveal">
+    <span class="section-num">03 //</span>
+    <h2 class="section-title">Skills</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="skills-layout">
+
+    <div class="skill-group reveal">
+      <div class="skill-group-icon">🎮</div>
+      <div class="skill-group-name">Game Dev</div>
+      <ul class="skill-list">
+        <li class="skill-item">
+          <span class="skill-name">Unity 3D/2D</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.9"></div></div>
+        </li>
+        <li class="skill-item">
+          <span class="skill-name">C#</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.85"></div></div>
+        </li>
+        <li class="skill-item">
+          <span class="skill-name">Level Design</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.8"></div></div>
+        </li>
+        <li class="skill-item">
+          <span class="skill-name">Game Logic</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.82"></div></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="skill-group reveal">
+      <div class="skill-group-icon">🎨</div>
+      <div class="skill-group-name">3D & Art</div>
+      <ul class="skill-list">
+        <li class="skill-item">
+          <span class="skill-name">Blender</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.85"></div></div>
+        </li>
+        <li class="skill-item">
+          <span class="skill-name">Aseprite</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.8"></div></div>
+        </li>
+        <li class="skill-item">
+          <span class="skill-name">Photoshop</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.75"></div></div>
+        </li>
+        <li class="skill-item">
+          <span class="skill-name">Substance</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.65"></div></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="skill-group reveal">
+      <div class="skill-group-icon">💻</div>
+      <div class="skill-group-name">Programming</div>
+      <ul class="skill-list">
+        <li class="skill-item">
+          <span class="skill-name">HTML/CSS</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.8"></div></div>
+        </li>
+        <li class="skill-item">
+          <span class="skill-name">LUA</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.7"></div></div>
+        </li>
+        <li class="skill-item">
+          <span class="skill-name">GO</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.65"></div></div>
+        </li>
+        <li class="skill-item">
+          <span class="skill-name">Python</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.6"></div></div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <span class="section-num">04 //</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">05.2025 - 06.2025</div>
+      <div class="timeline-role">Digital Marketing Assistant</div>
+      <div class="timeline-org">BG Marketing - Meknes</div>
+      <ul class="timeline-details">
+        <li>Worked with Google Analytics & WordPress for campaign performance tracking</li>
+        <li>Assisted with content creation and visual materials using Canva & Photoshop</li>
+        <li>Improved site page speed by compressing images and cleaning unused plugins</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">02.2025 - 03.2025</div>
+      <div class="timeline-role">Web Developer</div>
+      <div class="timeline-org">Driving School - Meknes</div>
+      <ul class="timeline-details">
+        <li>Developed a reservation website for a local driving school</li>
+        <li>Built the interface using HTML and CSS with a usability-first approach</li>
+        <li>Delivered a clean, simple layout focused on ease of use</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header reveal">
+    <span class="section-num">05 //</span>
+    <h2 class="section-title">Education</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-date">11/2025 - 05/2026</div>
+      <div class="edu-degree">Gaming Bootcamp - Game Development</div>
+      <div class="edu-school">Geeks Institute / LaStartupStation</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-date">09/2025 - 11/2026</div>
+      <div class="edu-degree">Programming Bootcamp</div>
+      <div class="edu-school">Zone01 Oujda</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-date">09/2024 - 07/2025</div>
+      <div class="edu-degree">Qualification Certificate - Web & Multimedia Development</div>
+      <div class="edu-school">ACCD Al Akhawayn</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-date">09/2022 - 07/2024</div>
+      <div class="edu-degree">Specialized Technician Diploma - Vehicles & Spare Parts</div>
+      <div class="edu-school">OFPPT</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-header reveal">
+    <span class="section-num">06 //</span>
+    <h2 class="section-title">Certifications</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="certs-row reveal">
+    <div class="cert-badge">Microsoft Office 365 - Cisco</div>
+    <div class="cert-badge">Hardware Basics - Cisco</div>
+    <div class="cert-badge">Full-Stack Development - Udemy</div>
+    <div class="cert-badge">Python - Udemy</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header reveal" style="justify-content:center; text-align:center;">
+    <span class="section-num">07 //</span>
+    <h2 class="section-title">Get In Touch</h2>
+  </div>
+
+  <p class="reveal" style="font-size:18px; font-weight:300; color:var(--text-dim); max-width:500px; margin:0 auto 8px; text-align:center; line-height:1.7;">
+    Open to game development roles, freelance projects, and creative collaborations.
+  </p>
+
+  <div class="reveal" style="text-align:center;">
+    <a href="mailto:moroccoyassir@gmail.com" class="contact-email">moroccoyassir@gmail.com</a>
+  </div>
+
+  <div class="contact-links reveal">
+    <a href="https://www.linkedin.com/in/yassir-essabahy" class="contact-link" target="_blank">LinkedIn</a>
+    <a href="tel:+212644871790" class="contact-link">+212 6 44 87 17 90</a>
+    <a href="#projects" class="contact-link">View Projects</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-text">(c) 2026 Yassir ESSABAHY - All rights reserved</span>
+  <span class="footer-logo">YE.</span>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
