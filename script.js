@@ -63,7 +63,7 @@ if (hasFinePointer && cursor && ring) {
   })();
 
   // Hover scale effects
-  document.querySelectorAll('a, button, .hero-profile, .project-card, .system-card, .skill-group, .edu-card, .cert-badge')
+  document.querySelectorAll('a, button, .hero-profile, .project-card, .system-card, .skill-group, .edu-card, .cert-badge, .btn-cv')
     .forEach(el => {
       el.addEventListener('mouseenter', () => {
         cursorScale = 2; ringScale = 1.5; ring.style.opacity = '1';

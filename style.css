@@ -403,6 +403,76 @@ nav {
   box-shadow: 0 0 20px var(--glow);
 }
 
+.btn-cv {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  /* Idle breathing glow — uses --glow so it adapts to any theme */
+  animation: cvPulse 2.8s ease-in-out infinite;
+}
+
+/* Shimmer sweep on hover — uses --glow for theme-adaptive colour */
+.btn-cv::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    108deg,
+    transparent 35%,
+    var(--glow) 50%,
+    transparent 65%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.55s ease;
+  pointer-events: none;
+}
+.btn-cv:hover::before {
+  transform: translateX(120%);
+}
+
+/* Top-right corner bracket */
+.btn-cv::after {
+  content: '';
+  position: absolute;
+  top: -1px; right: -1px;
+  width: 14px; height: 14px;
+  border-top: 2px solid var(--accent);
+  border-right: 2px solid var(--accent);
+  pointer-events: none;
+  transition: width 0.3s, height 0.3s;
+}
+.btn-cv:hover::after {
+  width: 20px; height: 20px;
+}
+
+/* Uses var(--glow) so it stays correct in both dark and light themes */
+@keyframes cvPulse {
+  0%, 100% { box-shadow: 0 0 6px var(--glow); }
+  50%       { box-shadow: 0 0 22px var(--glow), 0 0 44px var(--glow); }
+}
+
+.btn-cv:hover {
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  box-shadow: 0 0 28px var(--glow), 0 0 54px var(--glow);
+  animation: none;
+}
+
+/* SVG download icon */
+.btn-cv-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.btn-cv:hover .btn-cv-icon {
+  transform: translateY(2px);
+}
+
 /* Hero Stats */
 .hero-stats {
   position: absolute;
@@ -1507,6 +1577,19 @@ nav {
   background: #fffaf0;
   color: var(--text);
   border-color: var(--text);
+}
+
+/* Download CV button — light theme override */
+.btn-cv {
+  color: var(--text);
+  border-color: var(--text);
+}
+.btn-cv::after {
+  border-color: var(--text);
+}
+.btn-cv:hover {
+  background: rgba(17,17,17,0.05);
+  box-shadow: 6px 6px 0 rgba(17,17,17,0.18), 0 0 20px var(--glow);
 }
 
 .stat {
