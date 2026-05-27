@@ -1243,7 +1243,7 @@ section {
   text-decoration: none;
   letter-spacing: 2px;
   display: inline-block;
-  margin: 40px 0;
+  margin: 20px 0;
   position: relative;
   padding-bottom: 8px;
   transition: text-shadow 0.3s, letter-spacing 0.3s;
@@ -1316,9 +1316,14 @@ footer {
 
 /* content-visibility: auto skips rendering off-screen sections entirely.
    contain-intrinsic-size prevents layout shift while content is skipped. */
-#projects, #systems, #skills, #experience, #education, #certifications, #contact {
+#projects, #systems, #skills, #experience, #education, #certifications {
   content-visibility: auto;
   contain-intrinsic-size: auto 700px;
+}
+
+#contact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 400px;
 }
 
 @keyframes fadeUp {
@@ -2167,5 +2172,203 @@ footer {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+}
+/* ========================================
+   INSTAGRAM STAT (Hero)
+   ======================================== */
+.stat-insta {
+  text-decoration: none;
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-insta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  background: linear-gradient(135deg, rgba(253,29,29,0.08), rgba(131,58,180,0.08));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.stat-insta:hover::after { opacity: 1; }
+
+.stat-num-insta {
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 12px rgba(220,39,67,0.5));
+}
+
+.stat-insta:hover .stat-num-insta {
+  filter: drop-shadow(0 0 20px rgba(220,39,67,0.8));
+}
+
+/* ========================================
+   INSTAGRAM DEV LOG CARD
+   ======================================== */
+.insta-card {
+  max-width: 640px;
+  margin: 24px auto 0;
+  background: var(--surface);
+  border: 1px solid rgba(220,39,67,0.25);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.insta-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  opacity: 0.8;
+}
+
+.insta-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(253,29,29,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.insta-card:hover {
+  border-color: rgba(220,39,67,0.55);
+  box-shadow: 0 0 32px rgba(220,39,67,0.15), 0 0 64px rgba(131,58,180,0.08);
+}
+
+.insta-card-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 32px;
+}
+
+.insta-icon-wrap {
+  flex-shrink: 0;
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(220,39,67,0.3);
+  border-radius: 4px;
+  background: rgba(220,39,67,0.06);
+  color: #e05070;
+  transition: all 0.3s;
+}
+
+.insta-card:hover .insta-icon-wrap {
+  border-color: rgba(220,39,67,0.6);
+  color: #ff6080;
+  box-shadow: 0 0 16px rgba(220,39,67,0.2);
+}
+
+.insta-icon {
+  width: 22px; height: 22px;
+}
+
+.insta-card-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.insta-card-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #e05070;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.insta-card-handle {
+  font-family: 'Orbitron', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.insta-card-sub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+}
+
+.insta-card-right {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.insta-followers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  gap: 2px;
+}
+
+.insta-count {
+  font-family: 'Orbitron', monospace;
+  font-size: 22px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 8px rgba(220,39,67,0.4));
+}
+
+.insta-count-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.insta-follow-btn {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #e05070;
+  border: 1px solid rgba(220,39,67,0.4);
+  padding: 6px 16px;
+  border-radius: 2px;
+  transition: all 0.2s;
+  white-space: nowrap;
+  background: rgba(220,39,67,0.05);
+}
+
+.insta-follow-btn:hover {
+  background: rgba(220,39,67,0.15);
+  border-color: rgba(220,39,67,0.7);
+  color: #ff6080;
+  box-shadow: 0 0 12px rgba(220,39,67,0.2);
+}
+
+@media (max-width: 600px) {
+  .insta-card-inner {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px;
+  }
+  .insta-card-right {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
   }
 }
