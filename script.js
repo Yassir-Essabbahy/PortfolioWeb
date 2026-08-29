@@ -130,3 +130,74 @@ const observer = new IntersectionObserver((entries) => {
 // Single querySelectorAll — one observer handles everything
 document.querySelectorAll('.reveal, .timeline-item, .skill-group')
   .forEach(el => observer.observe(el));
+
+// ========================================
+// Project Media Carousels
+// ========================================
+// Each [data-carousel] supports any number of slides (images and/or muted
+// looping videos). Controls (arrows + dots) are generated only when there is
+// more than one slide, so single-image carousels look identical to before.
+// Videos autoplay only while their carousel is on screen and active.
+
+document.querySelectorAll('[data-carousel]').forEach(initCarousel);
+
+function initCarousel(root) {
+  const slides = Array.from(root.querySelectorAll('.carousel-slide'));
+  if (slides.length <= 1) return;
+
+  let index = 0;
+  let inView = false;
+
+  const dotsWrap = document.createElement('div');
+  dotsWrap.className = 'carousel-dots';
+  const dots = slides.map((_, n) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'carousel-dot' + (n === 0 ? ' is-active' : '');
+    dot.setAttribute('aria-label', `Show media ${n + 1} of ${slides.length}`);
+    dot.addEventListener('click', () => goTo(n));
+    dotsWrap.appendChild(dot);
+    return dot;
+  });
+
+  const prevBtn = document.createElement('button');
+  prevBtn.type = 'button';
+  prevBtn.className = 'carousel-btn prev';
+  prevBtn.setAttribute('aria-label', 'Previous media');
+  prevBtn.textContent = '‹';
+  prevBtn.addEventListener('click', () => goTo((index - 1 + slides.length) % slides.length));
+
+  const nextBtn = document.createElement('button');
+  nextBtn.type = 'button';
+  nextBtn.className = 'carousel-btn next';
+  nextBtn.setAttribute('aria-label', 'Next media');
+  nextBtn.textContent = '›';
+  nextBtn.addEventListener('click', () => goTo((index + 1) % slides.length));
+
+  root.append(prevBtn, nextBtn, dotsWrap);
+
+  function goTo(n) {
+    index = n;
+    slides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
+    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+    syncVideos();
+  }
+
+  function syncVideos() {
+    slides.forEach((slide, i) => {
+      const video = slide.querySelector('video');
+      if (!video) return;
+      if (i === index && inView) {
+        video.play().catch(() => {}); // autoplay can still be blocked; muted makes this rare
+      } else {
+        video.pause();
+      }
+    });
+  }
+
+  // Play/pause videos based on whether the card is on screen at all
+  new IntersectionObserver(entries => {
+    inView = entries[0].isIntersecting;
+    syncVideos();
+  }, { threshold: 0.25 }).observe(root);
+}
