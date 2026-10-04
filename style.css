@@ -905,7 +905,279 @@ section {
   border-color: rgba(255,34,68,0.2);
   background: rgba(255,34,68,0.02);
 }
-.horror-icon-wrap::before, .horror-icon-wrap::after { border-color: var(--accent2); }
+/* ========================================
+   3D ART & MODELING
+   ======================================== */
+#art3d {
+  background: var(--bg);
+  position: relative;
+}
+
+.art3d-featured {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 36px;
+  align-items: stretch;
+  margin-bottom: 28px;
+}
+
+.art3d-card {
+  background: var(--surface2);
+  padding: 32px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.art3d-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(157, 184, 97, 0.05) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.art3d-card:hover::before { opacity: 1; }
+.art3d-card > * { position: relative; z-index: 1; }
+
+.art3d-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.art3d-tag::before {
+  content: '';
+  width: 14px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.art3d-name {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.art3d-sub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: var(--accent2);
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.art3d-desc {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 22px;
+  font-weight: 300;
+}
+
+.art3d-features {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.art3d-features li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--text);
+  font-size: 13.5px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.art3d-features li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.art3d-features li strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.art3d-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.art3d-notes {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  background: rgba(157, 184, 97, 0.05);
+  border: 1px dashed var(--border);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.art3d-note-icon {
+  color: var(--accent);
+  font-size: 12px;
+  line-height: 1;
+}
+
+.art3d-visual {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.art3d-cover {
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+  margin-bottom: 0;
+  position: relative;
+  border: 1px solid var(--border);
+  background: #08080a;
+}
+
+.art3d-cover .media-carousel {
+  position: absolute;
+  inset: 0;
+}
+
+.art3d-cover .carousel-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #0a0a0d;
+}
+
+.carousel-slide-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 4;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  background: rgba(16, 16, 20, 0.9);
+  border: 1px solid var(--accent);
+  padding: 3px 9px;
+  text-transform: uppercase;
+  pointer-events: none;
+  box-shadow: 2px 2px 0 var(--psx-shadow);
+}
+
+.art3d-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 12px;
+}
+
+.art3d-subcard {
+  background: var(--surface2);
+  padding: 24px;
+  border: 1px solid rgba(157, 184, 97, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.art3d-subcard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(157, 184, 97, 0.05) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.art3d-subcard:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px rgba(157, 184, 97, 0.15);
+  transform: translateY(-3px);
+}
+
+.art3d-subcard:hover::before { opacity: 1; }
+.art3d-subcard > * { position: relative; z-index: 1; }
+
+.art3d-subcard-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.art3d-subcard-desc {
+  font-size: 13.5px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.art3d-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.art3d-pill {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border: 1px solid rgba(157, 184, 97, 0.25);
+  color: var(--accent);
+  background: rgba(157, 184, 97, 0.04);
+}
+
+@media (max-width: 1024px) {
+  .art3d-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .art3d-featured {
+    grid-template-columns: 1fr;
+  }
+  .art3d-cover {
+    min-height: 280px;
+  }
+  .art3d-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* ========================================
    PROTOTYPES & SYSTEMS
@@ -3335,12 +3607,17 @@ footer { border-top: 2px solid var(--border); }
   align-items: center;
   justify-content: center;
 }
-.lightbox-img {
+.lightbox-img,
+.lightbox-video {
   max-width: 86vw;
   max-height: 72vh;
   object-fit: contain;
   display: block;
   image-rendering: auto;
+}
+.lightbox-video {
+  background: #000;
+  outline: none;
 }
 .lightbox-caption {
   margin-top: 10px;
@@ -3407,7 +3684,8 @@ footer { border-top: 2px solid var(--border); }
   .lightbox-nav-btn { width: 38px; height: 38px; font-size: 22px; }
   .lightbox-prev { left: 8px; }
   .lightbox-next { right: 8px; }
-  .lightbox-img { max-width: 92vw; max-height: 65vh; }
+  .lightbox-img,
+  .lightbox-video { max-width: 92vw; max-height: 65vh; }
 }
 
 /* ---- Mobile: keep perf (grain anim already disabled ≤900px in base) ---- */

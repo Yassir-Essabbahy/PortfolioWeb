@@ -64,7 +64,7 @@ if (hasFinePointer && cursor && ring) {
 
   // Hover scale effects with delegation so dynamic carousel & lightbox buttons scale cursor
   document.addEventListener('mouseover', e => {
-    if (e.target.closest('a, button, .hero-profile, .project-card, .system-card, .skill-group, .edu-card, .cert-badge, .btn-cv, .carousel-slide')) {
+    if (e.target.closest('a, button, .hero-profile, .project-card, .system-card, .skill-group, .edu-card, .cert-badge, .btn-cv, .carousel-slide, .art3d-card, .art3d-subcard')) {
       cursorScale = 2; ringScale = 1.5; ring.style.opacity = '1';
       cursor.style.transform =
         `translate3d(${mx - CURSOR_HALF}px,${my - CURSOR_HALF}px,0) scale(${cursorScale})`;
@@ -72,7 +72,7 @@ if (hasFinePointer && cursor && ring) {
   });
 
   document.addEventListener('mouseout', e => {
-    if (e.target.closest('a, button, .hero-profile, .project-card, .system-card, .skill-group, .edu-card, .cert-badge, .btn-cv, .carousel-slide')) {
+    if (e.target.closest('a, button, .hero-profile, .project-card, .system-card, .skill-group, .edu-card, .cert-badge, .btn-cv, .carousel-slide, .art3d-card, .art3d-subcard')) {
       cursorScale = 1; ringScale = 1; ring.style.opacity = '0.5';
       cursor.style.transform =
         `translate3d(${mx - CURSOR_HALF}px,${my - CURSOR_HALF}px,0) scale(${cursorScale})`;
@@ -116,7 +116,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.reveal, .timeline-item, .skill-group')
+document.querySelectorAll('.reveal, .timeline-item, .skill-group, .art3d-card, .art3d-subcard')
   .forEach(el => observer.observe(el));
 
 // ========================================
@@ -128,11 +128,26 @@ function initCarousel(root) {
   const slides = Array.from(root.querySelectorAll('.carousel-slide'));
   const title = root.dataset.title || root.closest('.project-card')?.querySelector('.project-name')?.textContent || 'Game';
 
-  // Allow clicking slides to open fullscreen lightbox
+  // Allow clicking slides to open fullscreen lightbox (ignore clicks directly on video or buttons)
   slides.forEach((slide, idx) => {
-    slide.addEventListener('click', () => {
+    slide.addEventListener('click', (e) => {
+      if (e.target.tagName === 'VIDEO' || e.target.closest('video') || e.target.closest('button')) {
+        return;
+      }
       openLightbox(slides, idx, title);
     });
+
+    const v = slide.querySelector('video');
+    if (v) {
+      v.addEventListener('play', stopAutoplay);
+      v.addEventListener('pause', () => {
+        if (inView) startAutoplay();
+      });
+      v.addEventListener('ended', () => {
+        goTo((index + 1) % slides.length);
+        if (inView) startAutoplay();
+      });
+    }
   });
 
   if (slides.length <= 1) return;
@@ -153,7 +168,7 @@ function initCarousel(root) {
   const expandBtn = document.createElement('button');
   expandBtn.type = 'button';
   expandBtn.className = 'carousel-expand-btn';
-  expandBtn.setAttribute('aria-label', `Enlarge ${title} screenshots`);
+  expandBtn.setAttribute('aria-label', `Enlarge ${title} media`);
   expandBtn.setAttribute('title', 'View Fullscreen');
   expandBtn.innerHTML = `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>`;
   expandBtn.addEventListener('click', (e) => {
@@ -169,7 +184,7 @@ function initCarousel(root) {
     const dot = document.createElement('button');
     dot.type = 'button';
     dot.className = 'carousel-dot' + (n === 0 ? ' is-active' : '');
-    dot.setAttribute('aria-label', `Show screenshot ${n + 1} of ${slides.length}`);
+    dot.setAttribute('aria-label', `Show slide ${n + 1} of ${slides.length}`);
     dot.addEventListener('click', (e) => {
       e.stopPropagation();
       goTo(n);
@@ -182,7 +197,7 @@ function initCarousel(root) {
   const prevBtn = document.createElement('button');
   prevBtn.type = 'button';
   prevBtn.className = 'carousel-btn prev';
-  prevBtn.setAttribute('aria-label', 'Previous screenshot');
+  prevBtn.setAttribute('aria-label', 'Previous slide');
   prevBtn.textContent = '‹';
   prevBtn.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -192,7 +207,7 @@ function initCarousel(root) {
   const nextBtn = document.createElement('button');
   nextBtn.type = 'button';
   nextBtn.className = 'carousel-btn next';
-  nextBtn.setAttribute('aria-label', 'Next screenshot');
+  nextBtn.setAttribute('aria-label', 'Next slide');
   nextBtn.textContent = '›';
   nextBtn.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -214,7 +229,9 @@ function initCarousel(root) {
       const video = slide.querySelector('video');
       if (!video) return;
       if (i === index && inView) {
-        video.play().catch(() => {});
+        if (video.hasAttribute('autoplay')) {
+          video.play().catch(() => {});
+        }
       } else {
         video.pause();
       }
@@ -225,6 +242,12 @@ function initCarousel(root) {
   function startAutoplay() {
     if (autoplayTimer || !inView) return;
     autoplayTimer = setInterval(() => {
+      const currentSlide = slides[index];
+      const video = currentSlide?.querySelector('video');
+      // If a video is actively playing on the current slide, don't interrupt it
+      if (video && !video.paused && !video.ended) {
+        return;
+      }
       goTo((index + 1) % slides.length);
     }, AUTOPLAY_DELAY);
   }
@@ -274,10 +297,11 @@ function initCarousel(root) {
 }
 
 // ========================================
-// Fullscreen Screenshot Lightbox Modal
+// Fullscreen Media Lightbox Modal (Images & Videos)
 // ========================================
 const lightbox = document.getElementById('lightbox');
 const lbImg = document.getElementById('lightbox-img');
+const lbVideo = document.getElementById('lightbox-video');
 const lbTitle = document.getElementById('lightbox-title');
 const lbCounter = document.getElementById('lightbox-counter');
 const lbCaption = document.getElementById('lightbox-caption');
@@ -293,7 +317,7 @@ function openLightbox(slides, initialIdx, gameTitle) {
   if (!lightbox || !slides.length) return;
   lbSlides = slides;
   lbIndex = initialIdx;
-  lbGameTitle = gameTitle || 'Game';
+  lbGameTitle = gameTitle || 'Media';
   updateLightboxSlide();
   lightbox.classList.add('is-open');
   lightbox.setAttribute('aria-hidden', 'false');
@@ -302,6 +326,12 @@ function openLightbox(slides, initialIdx, gameTitle) {
 
 function closeLightbox() {
   if (!lightbox) return;
+  if (lbVideo) {
+    lbVideo.pause();
+    lbVideo.removeAttribute('src');
+    lbVideo.load();
+    lbVideo.style.display = 'none';
+  }
   lightbox.classList.remove('is-open');
   lightbox.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
@@ -311,11 +341,34 @@ function updateLightboxSlide() {
   if (!lbSlides.length) return;
   const currentSlide = lbSlides[lbIndex];
   const img = currentSlide.querySelector('img');
-  if (img) {
-    lbImg.src = img.src;
-    lbImg.alt = img.alt || lbGameTitle;
-    if (lbCaption) lbCaption.textContent = img.alt || '';
+  const video = currentSlide.querySelector('video');
+  const caption = currentSlide.dataset.caption || (img ? img.alt : '') || (video ? video.getAttribute('aria-label') : '') || '';
+
+  if (video) {
+    if (lbImg) {
+      lbImg.style.display = 'none';
+      lbImg.src = '';
+    }
+    if (lbVideo) {
+      lbVideo.style.display = 'block';
+      lbVideo.src = video.currentSrc || video.src;
+      lbVideo.currentTime = video.currentTime || 0;
+      lbVideo.play().catch(() => {});
+    }
+  } else if (img) {
+    if (lbVideo) {
+      lbVideo.pause();
+      lbVideo.style.display = 'none';
+      lbVideo.removeAttribute('src');
+    }
+    if (lbImg) {
+      lbImg.style.display = 'block';
+      lbImg.src = img.src;
+      lbImg.alt = img.alt || lbGameTitle;
+    }
   }
+
+  if (lbCaption) lbCaption.textContent = caption;
   if (lbTitle) lbTitle.textContent = lbGameTitle;
   if (lbCounter) lbCounter.textContent = `${lbIndex + 1} / ${lbSlides.length}`;
 }
