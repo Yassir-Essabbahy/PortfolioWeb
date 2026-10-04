@@ -1,0 +1,19 @@
+{
+  "name": "yessir-games-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website for Yassir ESSABAHY - Game Developer",
+  "main": "index.html",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "game-developer",
+    "unity",
+    "portfolio",
+    "horror",
+    "psx"
+  ],
+  "author": "Yassir ESSABAHY",
+  "license": "ISC"
+}
