@@ -3,961 +3,602 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yassir ESSABAHY - Game Developer</title>
+  <title>Yassir ESSABAHY — Game Developer (Unity / C# / Blender)</title>
+  <meta name="description" content="Portfolio of Yassir ESSABAHY, solo game developer specializing in Unity, C#, and Blender. Creator of As A Kid: Barzakh and A Finger of Luck.">
+  <link rel="canonical" href="https://yassir-essabbahy.vercel.app/">
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Yassir ESSABAHY">
+  <meta property="og:title" content="Yassir ESSABAHY — Game Developer (Unity / C# / Blender)">
+  <meta property="og:description" content="Solo game developer building atmospheric horror and interactive gameplay systems in Unity, C#, and Blender.">
+  <meta property="og:image" content="assets/AFingerForLuck.png">
+
+  <!-- Google Fonts: Inter & Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&family=Orbitron:wght@400;700;900&family=Silkscreen:wght@400;700&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6.5.2 for UI Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Early Theme Init to Prevent Flash of Unstyled Theme -->
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+          document.documentElement.dataset.theme = savedTheme;
+        } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+          document.documentElement.dataset.theme = "light";
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
+
 <body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
+  <!-- =========================================================================
+       1. FLOATING SITE NAVIGATION (Dylan Archer Style)
+       ========================================================================= -->
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a class="site-mark" href="#hero">
+      <span class="site-mark-badge">YE</span>
+      Yassir ESSABAHY
+    </a>
 
-<!-- NAV -->
-<nav>
-  <a href="#hero" class="nav-logo">
-    <span class="nav-mark">YG</span>
-    <span>Yessir Games</span>
-  </a>
-  <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-  <ul class="nav-links" id="primary-navigation">
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#art3d">3D Art</a></li>
-    <li><a href="#systems">Systems</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#certifications">Certifications</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+    <!-- Mobile Hamburger Toggle -->
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-nav-links">
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-
-  <div class="hero-content">
-    <div class="hero-brand">
-      <span class="brand-text">Yessir Games</span>
-    </div>
-    <div class="hero-label">Game Developer - Morocco</div>
-    <div class="hero-name-row">
-      <h1 class="hero-name">Yassir<br><span>ESSABAHY</span></h1>
-      <div class="hero-profile" role="img" aria-label="Profile image of Yassir ESSABAHY">
-        <div class="hero-profile-photo"></div>
+    <div class="site-nav-links" id="site-nav-links">
+      <a href="#about" class="nav-item">About</a>
+      
+      <!-- Category Dropdown -->
+      <div class="nav-dropdown">
+        <a href="#projects" class="nav-dropdown-trigger">
+          Projects <i class="fa-solid fa-chevron-down nav-caret" aria-hidden="true"></i>
+        </a>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="#game-projects" class="dropdown-item" role="menuitem">
+            <i class="fa-solid fa-gamepad" aria-hidden="true"></i> Game Development
+          </a>
+          <a href="#systems-projects" class="dropdown-item" role="menuitem">
+            <i class="fa-solid fa-microchip" aria-hidden="true"></i> Gameplay Systems
+          </a>
+          <a href="#3d-projects" class="dropdown-item" role="menuitem">
+            <i class="fa-solid fa-cube" aria-hidden="true"></i> 3D Modelling &amp; Reel
+          </a>
+          <a href="#vrar-projects" class="dropdown-item" role="menuitem">
+            <i class="fa-solid fa-vr-cardboard" aria-hidden="true"></i> VR / AR (Coming Soon)
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="hero-title">Unity / C# / Blender / Game Design</div>
-    <p class="hero-desc">
-      Building immersive gameplay experiences - from psychological horror simulations to physics-based mobile arcades. Currently developing <strong>As A Kid: Barzakh</strong>, crafting gameplay systems, 3D assets, and atmospheric worlds that draw players in. Documenting the whole journey on Instagram.
-    </p>
 
-    <div class="hero-cta">
-      <a href="#contact" class="btn btn-ghost">Get In Touch</a>
-      <a href="assets/Yassir_ESSABAHY_CV.pdf" class="btn btn-cv" download target="_blank" rel="noopener noreferrer" aria-label="Download Yassir ESSABAHY's CV">
-        <svg class="btn-cv-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-          <line x1="8" y1="1.5" x2="8" y2="9.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-          <polyline points="4.5,6.8 8,10.8 11.5,6.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <line x1="2.5" y1="13.5" x2="13.5" y2="13.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-        </svg>
+      <a href="#experience" class="nav-item">Experience</a>
+      <a href="#contact" class="nav-item">Contact</a>
+
+      <!-- Prominent Download CV Link -->
+      <a href="assets/Yassir_ESSABAHY_CV.pdf" class="nav-cv-btn" download target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
         Download CV
       </a>
     </div>
-  </div>
 
-  <div class="hero-stats">
-    <div class="stat">
-      <div class="stat-num">8+</div>
-      <div class="stat-label">Games Built</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">2+</div>
-      <div class="stat-label">Years Dev</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">5+</div>
-      <div class="stat-label">Certificates</div>
-    </div>
-    <a href="https://www.instagram.com/thats_yessir" target="_blank" rel="noopener noreferrer" class="stat stat-insta" aria-label="Follow on Instagram">
-      <div class="stat-num stat-num-insta">27K</div>
-      <div class="stat-label">Instagram</div>
-    </a>
-  </div>
+    <!-- Theme Switcher (Dark / Light Yellow x Creamy White) -->
+    <button class="theme-toggle" type="button" aria-label="Switch color theme" aria-pressed="false" title="Toggle theme">
+      <span class="theme-toggle-track" aria-hidden="true">
+        <span class="theme-toggle-thumb">
+          <i class="fa-solid fa-moon dark-icon" aria-hidden="true"></i>
+          <i class="fa-solid fa-sun light-icon" aria-hidden="true"></i>
+        </span>
+      </span>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
+  </nav>
 
-  <div class="scroll-indicator">
-    <span class="scroll-line"></span>
-    Scroll
-  </div>
-</section>
+  <!-- =========================================================================
+       MAIN SHELL
+       ========================================================================= -->
+  <main class="site-shell" id="main-content">
 
-<!-- LATEST RELEASE — full-page standalone showcase -->
-<section id="latest-release" aria-label="Latest release">
-  <div class="release-bg-wrap">
-    <img class="release-bg" src="assets/AFingerForLuck.png" alt="" aria-hidden="true">
-    <div class="release-overlay"></div>
-  </div>
+    <!-- =======================================================================
+         2. HERO SECTION (Dylan Archer Two-Column Split Card)
+         ======================================================================= -->
+    <header class="home-hero" id="hero">
+      <div class="header-content">
+        
+        <!-- Left Profile Column -->
+        <div class="profile">
+          <div class="profile-avatar-wrap">
+            <img src="assets/profile.jpg" class="profile-picture" alt="Portrait of Yassir ESSABAHY" width="130" height="130">
+            <span class="profile-status-dot" title="Available for Game Dev Roles &amp; Freelance"></span>
+          </div>
+          <h1>Yassir ESSABAHY</h1>
+          <p class="hero-role">Game Developer — Unity / C# / Blender</p>
+          <div class="hero-location">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Meknes, Morocco &bull; Remote
+          </div>
 
-  <div class="release-content reveal">
-    <span class="release-label">Latest Release //</span>
-    <h2 class="release-title">A Finger of Luck</h2>
-    <p class="release-tagline">
-      &ldquo;Double down, or lose a finger.&rdquo; Trapped in a dark backroom with a ruthless dealer, play Moroccan Blackjack to pay off your debt. Every loss costs you a finger. 5 fingers. Can you escape with all of them?
-    </p>
-    <div class="release-badge">Playable in Browser</div>
-    <div class="release-cta">
-      <a href="https://yassir001.itch.io/a-finger-of-luck" class="btn btn-primary" target="_blank" rel="noopener" aria-label="Play A Finger of Luck on itch.io">Play Now on itch.io</a>
-      <a href="#projects" class="btn btn-ghost">All Projects</a>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-header reveal">
-    <span class="section-num">01 //</span>
-    <h2 class="section-title">Projects</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="projects-grid">
-
-    <!-- Featured: As A Kid: Barzakh (LATEST PROJECT UNDER DEVELOPMENT) -->
-    <div class="project-card featured horror reveal" id="project-barzakh">
-      <div>
-        <div class="dev-status-badge">
-          <span class="dev-pulse"></span>
-          Latest Project Under Development
+          <!-- Social Links Row -->
+          <div class="social-links" role="group" aria-label="Social and developer profiles">
+            <a href="https://www.linkedin.com/in/yessir001/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" title="Connect on LinkedIn">
+              <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.instagram.com/thats_yessir" target="_blank" rel="noopener noreferrer" aria-label="Instagram Devlog (@thats_yessir)" title="Follow Instagram Devlog (27K followers)">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://yassir001.itch.io/" target="_blank" rel="noopener noreferrer" aria-label="itch.io Profile" title="Check out itch.io games">
+              <i class="fa-brands fa-itch-io" aria-hidden="true"></i>
+            </a>
+            <a href="https://github.com/Yassir-Essabbahy" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repositories" title="View GitHub projects">
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
-        <div class="project-tag">In Development / PC / Horror</div>
-        <h3 class="project-name">As A Kid: Barzakh</h3>
-        <div class="project-type">PSYCHOLOGICAL HORROR — MOROCCAN HOUSEHOLD / LIMBO</div>
-        <p class="project-desc">
-          The ambitious next chapter in the psychological horror series, expanding upon the Moroccan household setting of <em>As A Kid</em> (+6,000 itch.io downloads). <em>Barzakh</em> &mdash; the metaphysical threshold between reality and what lies beyond &mdash; plunges players into an eerie, dreamlike Moroccan limbo. Navigate familiar domestic rooms, liminal subway corridors, and haunting desert shores while uncovering hidden memories through interactive encounters with enigmatic souls like Hamid.
-        </p>
-        <ul class="project-features">
-          <li>Direct sequel/expansion to the acclaimed <em>As A Kid</em> Moroccan horror universe</li>
-          <li>Atmospheric domestic and liminal settings: traditional salons, metro platforms &amp; coastlines</li>
-          <li>Interactive branching dialogue system in Moroccan Darija with atmospheric storytelling</li>
-          <li>Signature PSX retro aesthetics: low-poly models, CRT curvature, chromatic aberration &amp; retro dithering</li>
-          <li>In active development using Unity 6 &amp; Blender &mdash; devlog documented on Instagram</li>
-        </ul>
-        <div class="project-stack">
-          <span class="stack-tag">Unity 6</span>
-          <span class="stack-tag">C#</span>
-          <span class="stack-tag">Blender</span>
-          <span class="stack-tag">PSX Style</span>
-          <span class="stack-tag">Narrative</span>
-          <span class="stack-tag">In Development</span>
+
+        <!-- Right About Column -->
+        <div class="about" id="about">
+          <h2>About Me</h2>
+          <p>
+            Hi, I'm Yassir ESSABAHY, a <b>solo game developer</b> and 3D technical artist from Morocco with over 2 years of dedicated development experience in <b>Unity, C#, and Blender</b>.
+          </p>
+          <p>
+            I specialize in crafting atmospheric psychological experiences, narrative branching systems, and tactile game mechanics. Currently developing <b>As A Kid: Barzakh</b> (the sequel to my 6,000+ download itch.io title) while sharing technical breakdowns and reels with <b>27,000+ creators on Instagram</b> (<b>@thats_yessir</b>).
+          </p>
+          <p class="about-availability">
+            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+            Open to <b>game development roles</b>, freelance systems programming, 3D asset modeling, and creative collaborations worldwide.
+          </p>
+
+          <!-- Hero Action Buttons -->
+          <div class="hero-action-buttons">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fa-solid fa-gamepad" aria-hidden="true"></i> View Projects
+            </a>
+            <a href="assets/Yassir_ESSABAHY_CV.pdf" class="btn btn-secondary btn-download-cv" download target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Download CV
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact
+            </a>
+          </div>
         </div>
-        <div class="project-date">09.2026 - Present (Active Development)</div>
-        <div class="project-links">
-          <a href="https://www.instagram.com/thats_yessir" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="Follow As A Kid: Barzakh devlog on Instagram">Follow Devlog on Instagram</a>
-          <a href="https://yassir001.itch.io/as-a-kid-demo" class="project-link" target="_blank" rel="noopener" aria-label="Play original As A Kid Demo on itch.io">Original Demo on itch.io</a>
+
+      </div>
+    </header>
+
+    <!-- =======================================================================
+         3. AWARDS & KEY METRICS (Dylan Archer Style)
+         ======================================================================= -->
+    <section class="content-section awards-section" aria-labelledby="awards-heading">
+      <div class="awards-header">
+        <h2 id="awards-heading"><i class="fa-solid fa-trophy" aria-hidden="true"></i> Highlights &amp; Milestones</h2>
+      </div>
+      <ul class="award-list">
+        <li>
+          <strong>8 Games Built &amp; Released</strong> &mdash; Ranging from psychological horror simulations to physics-based mobile arcades.
+        </li>
+        <li>
+          <strong>+6,000 Downloads on itch.io</strong> &mdash; For the original Moroccan household horror game <em>As A Kid</em>.
+        </li>
+        <li>
+          <strong>27K Instagram Community</strong> &mdash; Active devlog audience following solo production workflows (<a href="https://www.instagram.com/thats_yessir" target="_blank" rel="noopener noreferrer">@thats_yessir</a>).
+        </li>
+        <li>
+          <strong>Gaming Bootcamp Distinction</strong> &mdash; Intensive Game Development program at Geeks Institute / LaStartupStation.
+        </li>
+      </ul>
+    </section>
+
+    <!-- =======================================================================
+         4. PROJECTS SECTION (Dylan Archer Sequential Layout: Games -> Systems -> 3D -> VR/AR)
+         ======================================================================= -->
+    <section class="content-section projects-section" id="projects" aria-labelledby="projects-heading">
+      <div class="section-heading">
+        <div class="section-badge">01 &mdash; Portfolio</div>
+        <h2 id="projects-heading">Projects</h2>
+        <p class="section-lead">A selected portfolio of indie games, interactive systems, 3D asset reels, and prototypes built with Unity, C#, and Blender.</p>
+      </div>
+
+      <!-- 1. Game Development Sub-Section -->
+      <section class="project-group" id="game-projects" aria-labelledby="heading-games">
+        <div class="project-group-header">
+          <h3 class="project-group-title" id="heading-games">
+            <i class="fa-solid fa-gamepad" aria-hidden="true"></i> Game Development
+          </h3>
+          <span class="project-group-count">8 Games</span>
+        </div>
+        <div class="project-container" id="games-grid">
+          <!-- Rendered dynamically from projects.js -->
+        </div>
+      </section>
+
+      <!-- 2. Gameplay Systems Sub-Section -->
+      <section class="project-group" id="systems-projects" aria-labelledby="heading-systems">
+        <div class="project-group-header">
+          <h3 class="project-group-title" id="heading-systems">
+            <i class="fa-solid fa-microchip" aria-hidden="true"></i> Gameplay Systems &amp; Prototypes
+          </h3>
+          <span class="project-group-count">6 Systems</span>
+        </div>
+        <div class="project-container" id="systems-grid">
+          <!-- Rendered dynamically from projects.js -->
+        </div>
+      </section>
+
+      <!-- 3. 3D Modelling Sub-Section -->
+      <section class="project-group" id="3d-projects" aria-labelledby="heading-3d">
+        <div class="project-group-header">
+          <h3 class="project-group-title" id="heading-3d">
+            <i class="fa-solid fa-cube" aria-hidden="true"></i> 3D Modelling &amp; Animation
+          </h3>
+          <span class="project-group-count">1 Video Reel</span>
+        </div>
+        <div class="project-container" id="3d-grid">
+          <!-- Rendered dynamically from projects.js -->
+        </div>
+      </section>
+
+      <!-- 4. VR & AR Sub-Section -->
+      <section class="project-group" id="vrar-projects" aria-labelledby="heading-vrar">
+        <div class="project-group-header">
+          <h3 class="project-group-title" id="heading-vrar">
+            <i class="fa-solid fa-vr-cardboard" aria-hidden="true"></i> VR &amp; AR Development
+          </h3>
+          <span class="project-group-count">Coming Soon</span>
+        </div>
+        <div class="empty-state" id="empty-state" aria-live="polite">
+          <div class="empty-state-badge">Coming Soon</div>
+          <h4 class="empty-state-title">Spatial Computing &amp; Immersive Prototypes</h4>
+          <p class="empty-state-text">
+            Experimental spatial interactions, VR horror prototypes, and augmented reality mechanics are currently in R&amp;D. Updates will be released here and on Instagram.
+          </p>
+          <a href="https://www.instagram.com/thats_yessir" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i> Follow Devlog on Instagram
+          </a>
+        </div>
+      </section>
+    </section>
+
+    <!-- =======================================================================
+         5. SKILLS SECTION (Grouped Chips)
+         ======================================================================= -->
+    <section class="content-section" id="skills-section" aria-labelledby="skills-heading">
+      <div class="section-heading">
+        <div class="section-badge">02 &mdash; Capabilities</div>
+        <h2 id="skills-heading">Technical Skills</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-group-card">
+          <div class="skill-group-header">
+            <span class="skill-group-icon"><i class="fa-solid fa-gamepad" aria-hidden="true"></i></span>
+            <h3>Game Development</h3>
+          </div>
+          <div class="skill-chips-wrap">
+            <span class="chip">Unity 3D / 2D</span>
+            <span class="chip">C# Scripting</span>
+            <span class="chip">Level Design</span>
+            <span class="chip">Gameplay Mechanics</span>
+            <span class="chip">UI Architecture</span>
+            <span class="chip">Physics Systems</span>
+            <span class="chip">Audio &amp; Event Triggers</span>
+            <span class="chip">WebGL Builds</span>
+          </div>
+        </div>
+
+        <div class="skill-group-card">
+          <div class="skill-group-header">
+            <span class="skill-group-icon"><i class="fa-solid fa-cube" aria-hidden="true"></i></span>
+            <h3>3D &amp; Digital Art</h3>
+          </div>
+          <div class="skill-chips-wrap">
+            <span class="chip">Blender 3D</span>
+            <span class="chip">Low-Poly Modeling</span>
+            <span class="chip">UV Unwrapping</span>
+            <span class="chip">Texture Atlasing</span>
+            <span class="chip">Modular Environments</span>
+            <span class="chip">Aseprite (Pixel Art)</span>
+            <span class="chip">Photoshop</span>
+            <span class="chip">Substance</span>
+          </div>
+        </div>
+
+        <div class="skill-group-card">
+          <div class="skill-group-header">
+            <span class="skill-group-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+            <h3>Programming &amp; Tools</h3>
+          </div>
+          <div class="skill-chips-wrap">
+            <span class="chip">C# (.NET)</span>
+            <span class="chip">Python &amp; Flask</span>
+            <span class="chip">Lua</span>
+            <span class="chip">Go</span>
+            <span class="chip">HTML5 / CSS3 / Vanilla JS</span>
+            <span class="chip">Git / GitHub</span>
+            <span class="chip">Vercel Deployment</span>
+            <span class="chip">REST APIs</span>
+          </div>
         </div>
       </div>
-      <div class="project-visual">
-        <figure class="project-cover project-cover-featured">
-          <div class="media-carousel" data-carousel data-title="As A Kid: Barzakh">
-            <div class="carousel-slide is-active">
-              <img src="assets/barzakh/barzakh-1.png" class="psx-filter" alt="As A Kid: Barzakh - Hamid character dialogue scene" loading="lazy">
+    </section>
+
+    <!-- =======================================================================
+         6. EXPERIENCE & EDUCATION (Clean Two-Column Timeline)
+         ======================================================================= -->
+    <section class="content-section" id="experience" aria-labelledby="experience-heading">
+      <div class="section-heading">
+        <div class="section-badge">03 &mdash; Background</div>
+        <h2 id="experience-heading">Experience &amp; Education</h2>
+        <p class="section-lead">Professional background, developer bootcamps, and academic credentials.</p>
+      </div>
+
+      <div class="timeline-two-column">
+        
+        <!-- Left: Work Experience -->
+        <div class="timeline-col">
+          <h3 class="timeline-col-title">
+            <i class="fa-solid fa-briefcase" aria-hidden="true"></i> Work Experience
+          </h3>
+          <div class="timeline-list">
+            
+            <article class="timeline-item">
+              <div class="timeline-date">05.2025 &mdash; 06.2025</div>
+              <h4 class="timeline-item-title">Digital Marketing Assistant</h4>
+              <div class="timeline-company">BG Marketing &bull; Meknes, Morocco</div>
+              <ul class="timeline-bullets">
+                <li>Managed campaign metrics with Google Analytics &amp; WordPress dashboards.</li>
+                <li>Created graphic and visual marketing assets using Photoshop and Canva.</li>
+                <li>Optimized page load times by compressing media assets and cleaning plugins.</li>
+              </ul>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-date">02.2025 &mdash; 03.2025</div>
+              <h4 class="timeline-item-title">Web Developer</h4>
+              <div class="timeline-company">Driving School &bull; Meknes, Morocco</div>
+              <ul class="timeline-bullets">
+                <li>Built a responsive reservation web application for a local driving academy.</li>
+                <li>Engineered a semantic, accessible interface with HTML and CSS focused on clarity.</li>
+              </ul>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- Right: Education & Academic Projects -->
+        <div class="timeline-col">
+          <h3 class="timeline-col-title">
+            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Education &amp; Projects
+          </h3>
+          <div class="timeline-list">
+
+            <article class="timeline-item">
+              <div class="timeline-date">11/2025 &mdash; 05/2026</div>
+              <h4 class="timeline-item-title">Gaming Bootcamp &mdash; Game Development</h4>
+              <div class="timeline-company">Geeks Institute / LaStartupStation</div>
+              <p class="timeline-desc">
+                Intensive game programming curriculum covering Unity engine pipelines, C# architecture, 3D asset integration, and game jam productions.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-date">09/2025 &mdash; TO CONFIRM</div>
+              <h4 class="timeline-item-title">Programming Bootcamp</h4>
+              <div class="timeline-company">Zone01 Oujda</div>
+              <p class="timeline-desc">
+                Peer-to-peer software engineering program centered on algorithm design, systems architecture, and collaborative problem solving.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-date">09/2024 &mdash; 07/2025</div>
+              <h4 class="timeline-item-title">Qualification Certificate &mdash; Web &amp; Multimedia Development</h4>
+              <div class="timeline-company">ACCD Al Akhawayn</div>
+              <div class="academic-project-box">
+                <div class="academic-project-badge">Final Year Project</div>
+                <h5>Customer Service Chatbot</h5>
+                <p>
+                  Engineered an automated customer support chatbot using Python and Flask. Designed conversational rule flows, session management, and a REST API backend.
+                </p>
+                <a href="https://github.com/Yassir-Essabbahy/Flask-Chatbot" target="_blank" rel="noopener noreferrer" class="link-inline">
+                  View Source Code on GitHub <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-date">09/2022 &mdash; 07/2024</div>
+              <h4 class="timeline-item-title">Specialized Technician Diploma &mdash; Vehicles &amp; Spare Parts</h4>
+              <div class="timeline-company">OFPPT</div>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Certifications Chips Row -->
+      <div class="certifications-card">
+        <h4 class="certifications-title"><i class="fa-solid fa-certificate" aria-hidden="true"></i> Professional Certifications</h4>
+        <div class="certifications-row">
+          <span class="cert-chip">Game Developer &bull; Geeks Institute</span>
+          <span class="cert-chip">Full-Stack Development &bull; Udemy</span>
+          <span class="cert-chip">Python Programming &bull; Udemy</span>
+          <span class="cert-chip">Hardware Basics &bull; Cisco</span>
+          <span class="cert-chip">Microsoft Office 365 &bull; Cisco</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         7. CONTACT SECTION
+         ======================================================================= -->
+    <section class="content-section" id="contact" aria-labelledby="contact-heading">
+      <div class="section-heading text-center">
+        <div class="section-badge">04 &mdash; Connect</div>
+        <h2 id="contact-heading">Let's Build Something Memorable</h2>
+        <p class="section-lead">Open to game development positions, freelance projects, and creative collaborations.</p>
+      </div>
+
+      <div class="contact-box">
+        <a href="mailto:moroccoyassir@gmail.com" class="contact-primary-email">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          moroccoyassir@gmail.com
+        </a>
+
+        <!-- Instagram Devlog Card -->
+        <div class="contact-insta-banner">
+          <div class="contact-insta-left">
+            <img src="assets/profile.jpg" alt="" class="contact-insta-avatar" width="56" height="56" aria-hidden="true">
+            <div>
+              <div class="contact-insta-tag">Devlog Community</div>
+              <div class="contact-insta-handle">@thats_yessir</div>
+              <p class="contact-insta-sub">Building games in public &mdash; daily technical breakdowns and updates.</p>
             </div>
-            <div class="carousel-slide">
-              <img src="assets/barzakh/barzakh-2.png" class="psx-filter" alt="As A Kid: Barzakh - Moroccan beach limbo environment" loading="lazy">
+          </div>
+          <div class="contact-insta-right">
+            <div class="contact-insta-stat">
+              <span class="contact-insta-num">27K</span>
+              <span class="contact-insta-label">followers</span>
             </div>
-            <div class="carousel-slide">
-              <img src="assets/barzakh/barzakh-3.png" class="psx-filter" alt="As A Kid: Barzakh - Limbo subway platform exploration" loading="lazy">
+            <a href="https://www.instagram.com/thats_yessir" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i> Follow
+            </a>
+          </div>
+        </div>
+
+        <!-- Direct Channels -->
+        <div class="contact-grid">
+          <a href="https://www.linkedin.com/in/yessir001/" target="_blank" rel="noopener noreferrer" class="contact-tile">
+            <span class="tile-icon"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></span>
+            <span class="tile-label">LinkedIn</span>
+            <span class="tile-value">yessir001 &rarr;</span>
+          </a>
+          <a href="https://www.instagram.com/thats_yessir" target="_blank" rel="noopener noreferrer" class="contact-tile">
+            <span class="tile-icon"><i class="fa-brands fa-instagram" aria-hidden="true"></i></span>
+            <span class="tile-label">Instagram</span>
+            <span class="tile-value">@thats_yessir &rarr;</span>
+          </a>
+          <a href="tel:+212644871790" class="contact-tile">
+            <span class="tile-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+            <span class="tile-label">Phone</span>
+            <span class="tile-value">+212 6 44 87 17 90</span>
+          </a>
+          <a href="assets/Yassir_ESSABAHY_CV.pdf" download target="_blank" rel="noopener noreferrer" class="contact-tile">
+            <span class="tile-icon"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i></span>
+            <span class="tile-label">Curriculum Vitae</span>
+            <span class="tile-value">Download PDF &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       9. FOOTER (Dylan Archer Style)
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2026 Yassir ESSABAHY. Solo Game Developer.</p>
+      <div class="footer-icons">
+        <a href="https://www.github.com/Yassir-Essabbahy" target="_blank" rel="noopener noreferrer" class="social-icon" title="View GitHub Repositories">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://yassir001.itch.io/" target="_blank" rel="noopener noreferrer" class="social-icon" title="Check out itch.io games">
+          <i class="fa-brands fa-itch-io" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.instagram.com/thats_yessir" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow Instagram Devlog">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/yessir001/" target="_blank" rel="noopener noreferrer" class="social-icon" title="Connect on LinkedIn">
+          <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top" type="button" aria-label="Return to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- =========================================================================
+       10. PROJECT DETAIL MODAL (Light/Dark Yellow x Creamy White)
+       ========================================================================= -->
+  <div class="modal-backdrop" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-dialog">
+      
+      <button class="modal-close-btn" id="modal-close-btn" type="button" aria-label="Close project modal">
+        &times;
+      </button>
+
+      <div class="modal-body">
+        
+        <!-- Media Gallery / Video Player -->
+        <div class="modal-media-wrap" id="modal-media-wrap">
+          <div class="modal-gallery" id="modal-gallery">
+            <div class="modal-slide is-active" id="modal-slide-container">
+              <!-- Rendered dynamically -->
             </div>
-            <div class="carousel-slide">
-              <img src="assets/barzakh/barzakh-4.png" class="psx-filter" alt="As A Kid: Barzakh - Unity 6 engine level design and lighting" loading="lazy">
+            <button class="gallery-nav prev" id="modal-prev-btn" type="button" aria-label="Previous image">&lsaquo;</button>
+            <button class="gallery-nav next" id="modal-next-btn" type="button" aria-label="Next image">&rsaquo;</button>
+            <div class="gallery-counter" id="modal-counter">1 / 1</div>
+          </div>
+        </div>
+
+        <!-- Content Details -->
+        <div class="modal-info">
+          
+          <div class="modal-meta-row">
+            <span class="modal-category-badge" id="modal-category">Game</span>
+            <span class="modal-year" id="modal-year">2026</span>
+          </div>
+
+          <h3 class="modal-title" id="modal-title">Project Title</h3>
+          <p class="modal-summary" id="modal-summary">One-line hook summary</p>
+
+          <div class="modal-section">
+            <h4 class="modal-section-title">Overview</h4>
+            <p class="modal-desc" id="modal-desc">Detailed overview</p>
+          </div>
+
+          <div class="modal-section" id="modal-features-wrap">
+            <h4 class="modal-section-title">Key Highlights</h4>
+            <ul class="modal-features" id="modal-features">
+              <!-- Max 4 bullets -->
+            </ul>
+          </div>
+
+          <div class="modal-section">
+            <h4 class="modal-section-title">Tech Stack</h4>
+            <div class="modal-tags" id="modal-tags">
+              <!-- Tag chips -->
             </div>
           </div>
-        </figure>
-      </div>
-    </div>
 
-    <!-- Featured: A Finger of Luck -->
-    <div class="project-card featured horror reveal" id="project-finger-of-luck">
-      <div>
-        <div class="project-tag">Latest Release / Web &amp; PC / Horror</div>
-        <h3 class="project-name">A Finger of Luck</h3>
-        <div class="project-type">RETRO VHS HORROR — MOROCCAN BLACKJACK</div>
-        <p class="project-desc">
-          &ldquo;Double down, or lose a finger.&rdquo; You are trapped in a dark backroom with a dealer who doesn't care about excuses. Deep in debt, the only way out is to play Moroccan Blackjack. Win to earn money and pay your debt &mdash; but lose or bust, and you lose a finger. Pay your debt completely to unlock the suitcase and earn your freedom.
-        </p>
-        <ul class="project-features">
-          <li>Traditional 40-card Moroccan deck (1–7, Sota [10], Caballo [11], Rey [12])</li>
-          <li>High-stakes penalty system: 5 fingers total &mdash; lose them all, game over</li>
-          <li>Retro VHS horror aesthetic inspired by Fears to Fathom</li>
-          <li>Dynamic cameras, realistic card handling &amp; intense penalty scenes</li>
-          <li>Playable directly in desktop and mobile browsers via WebGL</li>
-        </ul>
-        <div class="project-stack">
-          <span class="stack-tag">Unity</span>
-          <span class="stack-tag">C#</span>
-          <span class="stack-tag">Blender</span>
-          <span class="stack-tag">Retro VHS</span>
-          <span class="stack-tag">WebGL</span>
+          <div class="modal-actions" id="modal-links">
+            <!-- Buttons dynamically generated -->
+          </div>
+
         </div>
-        <div class="project-date">08.2026 - 09.2026</div>
-        <div class="project-links">
-          <a href="https://yassir001.itch.io/a-finger-of-luck" class="project-link" target="_blank" rel="noopener" aria-label="Play A Finger of Luck on itch.io">Play on itch.io</a>
-        </div>
-      </div>
-      <div class="project-visual">
-        <figure class="project-cover project-cover-featured">
-          <div class="media-carousel" data-carousel data-title="A Finger of Luck">
-            <div class="carousel-slide is-active">
-              <img src="assets/finger/finger-1.png" class="psx-filter" alt="A Finger of Luck - Moroccan Blackjack table scene" loading="lazy">
-            </div>
-            <div class="carousel-slide">
-              <img src="assets/finger/finger-2.png" class="psx-filter" alt="A Finger of Luck - Ruthless dealer closeup" loading="lazy">
-            </div>
-            <div class="carousel-slide">
-              <img src="assets/finger/finger-3.png" class="psx-filter" alt="A Finger of Luck - Suitcase payoff and gameplay screen" loading="lazy">
-            </div>
-          </div>
-        </figure>
-      </div>
-    </div>
 
-    <!-- As A Kid (Original / Demo) -->
-    <div class="project-card horror reveal" id="project-asakid">
-      <figure class="project-cover">
-        <div class="media-carousel" data-carousel data-title="As A Kid">
-          <div class="carousel-slide is-active">
-            <img src="assets/AsAKid.png" class="psx-filter" alt="As A Kid title screenshot" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/AsAKid/asakid-1.png" class="psx-filter" alt="As A Kid Moroccan hallway with traditional rug" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/AsAKid/asakid-2.png" class="psx-filter" alt="As A Kid Moroccan salon living room" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/AsAKid/asakid-3.png" class="psx-filter" alt="As A Kid Babak character dialogue in Darija" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/AsAKid/asakid-4.png" class="psx-filter" alt="As A Kid domestic interior view" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/AsAKid/asakid-5.png" class="psx-filter" alt="As A Kid atmospheric room exploration" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/AsAKid/asakid-6.png" class="psx-filter" alt="As A Kid detailed room objects" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/AsAKid/asakid-7.png" class="psx-filter" alt="As A Kid bedroom exploration sequence" loading="lazy">
-          </div>
-        </div>
-      </figure>
-      <div class="project-tag">PC / Horror / +6000 Downloads</div>
-      <h3 class="project-name">As A Kid</h3>
-      <div class="project-type">PSYCHOLOGICAL HORROR — MOROCCAN HOUSEHOLD</div>
-      <p class="project-desc">
-        A short psychological horror game set inside a Moroccan household — a world of familiar walls, locked doors, and things you weren't supposed to hear. You play as a child navigating a night that feels wrong. Hide. Listen. Remember.
-      </p>
-      <ul class="project-features">
-        <li>PSX-style visuals — low-poly, lo-fi, intentionally broken</li>
-        <li>Moroccan atmosphere — architecture, sounds, and Darija dialogue</li>
-        <li>Psychological horror rooted in memory and emotional isolation</li>
-        <li>+6000 downloads on itch.io</li>
-      </ul>
-      <div class="project-stack">
-        <span class="stack-tag">Unity</span>
-        <span class="stack-tag">C#</span>
-        <span class="stack-tag">Blender</span>
-        <span class="stack-tag">PSX Style</span>
-        <span class="stack-tag">Narrative</span>
-      </div>
-      <div class="project-date">06.2026 - 08.2026</div>
-      <div class="project-links">
-        <a href="https://yassir001.itch.io/as-a-kid-demo" class="project-link" target="_blank" rel="noopener" aria-label="Play As A Kid on itch.io">Play on itch.io</a>
-      </div>
-    </div>
-
-    <!-- Pharmacy Night Shift -->
-    <div class="project-card horror reveal">
-      <figure class="project-cover">
-        <div class="media-carousel" data-carousel data-title="Pharmacy Night Shift">
-          <div class="carousel-slide is-active">
-            <img src="assets/pharmacy/pharmacy-1.png" class="psx-filter" alt="Pharmacy Night Shift - Counter & customer area" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/pharmacy/pharmacy-2.png" class="psx-filter" alt="Pharmacy Night Shift - Medicine shelves & inventory" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/pharmacy/pharmacy-3.png" class="psx-filter" alt="Pharmacy Night Shift - Storefront night perspective" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/pharmacy/pharmacy-4.png" class="psx-filter" alt="Pharmacy Night Shift - Prescription interaction logic" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/pharmacy/pharmacy-5.png" class="psx-filter" alt="Pharmacy Night Shift - Atmospheric tension scene" loading="lazy">
-          </div>
-        </div>
-      </figure>
-      <div class="project-tag">PC / Horror</div>
-      <h3 class="project-name">Pharmacy Night Shift</h3>
-      <div class="project-type">PSYCHOLOGICAL HORROR SIMULATION</div>
-      <p class="project-desc">
-        A PSX-styled horror simulation set during a lonely night shift at a pharmacy. Interact with strange customers, manage prescriptions - while tension slowly builds into something deeply unsettling.
-      </p>
-      <ul class="project-features">
-        <li>Core gameplay built in C# - interaction logic & progression systems</li>
-        <li>All PSX-inspired 3D assets produced in Blender with custom texture wrapping</li>
-        <li>UI System, prescription logic, and atmospheric event triggers</li>
-      </ul>
-      <div class="project-stack">
-        <span class="stack-tag">Unity 6.3</span>
-        <span class="stack-tag">C#</span>
-        <span class="stack-tag">Blender</span>
-        <span class="stack-tag">PSX Style</span>
-        <span class="stack-tag">UI System</span>
-      </div>
-      <div class="project-date">02.2026 - 04.2026</div>
-      <div class="project-links">
-        <a href="https://yassir001.itch.io/pharmacy-night-shift" class="project-link" target="_blank" rel="noopener" aria-label="Play Pharmacy Night Shift on itch.io">Play on itch.io</a>
-      </div>
-    </div>
-
-    <!-- FlipThatCan -->
-    <div class="project-card reveal">
-      <figure class="project-cover">
-        <div class="media-carousel" data-carousel data-title="FlipThatCan">
-          <div class="carousel-slide is-active">
-            <img src="assets/flip/flip-1.gif" class="psx-filter" alt="FlipThatCan - Bouncing physics gameplay animated" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/flip/flip-2.gif" class="psx-filter" alt="FlipThatCan - High-speed obstacle jump animated" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/flip/flip-3.png" class="psx-filter" alt="FlipThatCan - Pixel art key promo art" loading="lazy">
-          </div>
-        </div>
-      </figure>
-      <div class="project-tag">Mobile / Arcade</div>
-      <h3 class="project-name">FlipThatCan</h3>
-      <div class="project-type">PHYSICS-BASED BOUNCING GAME</div>
-      <p class="project-desc">
-        A fast mobile arcade game where players control a bouncing can through increasingly tricky environments. Custom 2D assets, tight physics feel.
-      </p>
-      <ul class="project-features">
-        <li>Physics-based mechanics using Unity physics engine</li>
-        <li>Custom 2D pixel art assets designed in Aseprite</li>
-        <li>Mobile-optimized for smooth performance</li>
-      </ul>
-      <div class="project-stack">
-        <span class="stack-tag">Unity</span>
-        <span class="stack-tag">C#</span>
-        <span class="stack-tag">Aseprite</span>
-        <span class="stack-tag">Mobile</span>
-      </div>
-      <div class="project-date">01.2026 - 02.2026</div>
-      <div class="project-links">
-        <a href="https://yassir001.itch.io/flip-that-can" class="project-link" target="_blank" rel="noopener" aria-label="Play FlipThatCan on itch.io">Play on itch.io</a>
-      </div>
-    </div>
-
-    <!-- Report Protocol -->
-    <div class="project-card reveal">
-      <figure class="project-cover">
-        <div class="media-carousel" data-carousel data-title="Report Protocol">
-          <div class="carousel-slide is-active">
-            <img src="assets/report/report-1.png" class="psx-filter" alt="Report Protocol - Security camera surveillance feed" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/report/report-2.png" class="psx-filter" alt="Report Protocol - Anomaly detection and reporting interface" loading="lazy">
-          </div>
-        </div>
-      </figure>
-      <div class="project-tag">PC / Horror / Puzzle</div>
-      <h3 class="project-name">Report Protocol</h3>
-      <div class="project-type">PSX-STYLE ANOMALY DETECTION GAME</div>
-      <p class="project-desc">
-        A short PSX-style anomaly reporting game where players monitor multiple security cameras and detect unusual changes in different rooms. The project focuses on observation-based gameplay, tension building, and creating a complete playable loop from start to finish.
-      </p>
-      <ul class="project-features">
-        <li>Multi-camera monitoring system with keyboard switching (1/2/3)</li>
-        <li>Anomaly detection system with dynamic object state changes</li>
-        <li>Win/Loss reporting system based on player accuracy</li>
-        <li>PSX-style visuals using low-poly models and retro textures</li>
-        <li>Custom UI system for reporting anomalies</li>
-        <li>Basic shader effects to simulate retro PSX look</li>
-      </ul>
-      <div class="project-stack">
-        <span class="stack-tag">Unity</span>
-        <span class="stack-tag">C#</span>
-        <span class="stack-tag">Blender</span>
-        <span class="stack-tag">Photoshop</span>
-      </div>
-      <div class="project-date">03.2026 - 04.2026</div>
-      <div class="project-links">
-        <a href="https://yassir001.itch.io/report-protocol" class="project-link" target="_blank" rel="noopener" aria-label="Play Report Protocol on itch.io">Play on itch.io</a>
-      </div>
-    </div>
-
-    <!-- DrDance -->
-    <div class="project-card reveal">
-      <figure class="project-cover">
-        <div class="media-carousel" data-carousel data-title="DrDance">
-          <div class="carousel-slide is-active">
-            <img src="assets/DrDance.png" class="psx-filter" alt="DrDance arcade cover art" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/DrDance/drdance-1.png" class="psx-filter" alt="DrDance title screen with dancing gold character and soda can" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/DrDance/drdance-2.png" class="psx-filter" alt="DrDance rhythm gameplay countdown Un Dos Tres Cuatro" loading="lazy">
-          </div>
-        </div>
-      </figure>
-      <div class="project-tag">Mobile / Arcade</div>
-      <h3 class="project-name">DrDance</h3>
-      <div class="project-type">FLAPPY BIRD STYLE GAME</div>
-      <p class="project-desc">
-        A fast-paced endless arcade game inspired by Flappy Bird. Navigate obstacles with rhythm and precision - real-time score tracking keeps the tension high.
-      </p>
-      <ul class="project-features">
-        <li>Player controls, obstacle spawning & score tracking</li>
-        <li>Clean 2D Unity physics and UI system integration</li>
-        <li>Mobile build with performance optimization</li>
-      </ul>
-      <div class="project-stack">
-        <span class="stack-tag">Unity</span>
-        <span class="stack-tag">C#</span>
-        <span class="stack-tag">Physics</span>
-        <span class="stack-tag">UI System</span>
-      </div>
-      <div class="project-date">01.2026 - 02.2026</div>
-      <div class="project-links">
-        <a href="https://yassir001.itch.io/drdance" class="project-link" target="_blank" rel="noopener" aria-label="Play DrDance on itch.io">Play on itch.io</a>
-      </div>
-    </div>
-
-    <!-- Recording 02:17 -->
-    <div class="project-card horror reveal">
-      <figure class="project-cover">
-        <div class="media-carousel" data-carousel data-title="Recording 02:17">
-          <div class="carousel-slide is-active">
-            <img src="assets/recording/recording-1.png" class="psx-filter" alt="Recording 02:17 - Dim eerie hallway investigation" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/recording/recording-2.png" class="psx-filter" alt="Recording 02:17 - Low-poly atmospheric bedroom scene" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/recording/recording-3.png" class="psx-filter" alt="Recording 02:17 - Mysterious environmental encounter" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/recording/recording-4.png" class="psx-filter" alt="Recording 02:17 - Investigation note closeup" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/recording/recording-5.png" class="psx-filter" alt="Recording 02:17 - Psychological horror darkness reveal" loading="lazy">
-          </div>
-        </div>
-      </figure>
-      <div class="project-tag">PC / Horror</div>
-      <h3 class="project-name">Recording 02:17</h3>
-      <div class="project-type">PSYCHOLOGICAL HORROR GAME</div>
-      <p class="project-desc">
-        A horror experience set inside mysterious environments. The player uncovers hidden events through exploration and environmental storytelling.
-      </p>
-      <ul class="project-features">
-        <li>Built psychological horror prototype in Unity</li>
-        <li>Atmosphere-driven gameplay with player interactions & scene triggers</li>
-        <li>Level design and C# scripting</li>
-      </ul>
-      <div class="project-stack">
-        <span class="stack-tag">Unity</span>
-        <span class="stack-tag">C#</span>
-        <span class="stack-tag">Level Design</span>
-      </div>
-      <div class="project-date">11.2025 - 01.2026</div>
-      <div class="project-links">
-        <a href="https://yassir001.itch.io/recording-0217" class="project-link" target="_blank" rel="noopener" aria-label="Play Recording 02:17 on itch.io">Play on itch.io</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- 3D ART & MODELING -->
-<section id="art3d">
-  <div class="section-header reveal">
-    <span class="section-num">02 //</span>
-    <h2 class="section-title">3D Art &amp; Modeling</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <!-- Featured 3D Showcase (Video Reel & Multi-Item Slideshow) -->
-  <div class="art3d-featured reveal">
-    <div class="art3d-card art3d-card-featured">
-      <div class="art3d-tag">Blender / Low-Poly / Retro Shading</div>
-      <h3 class="art3d-name">PSX 3D ASSETS &amp; MODELING REEL</h3>
-      <div class="art3d-sub">CUSTOM RETRO PROPS &bull; MOROCCAN INTERIORS &bull; MODULAR ENVIRONMENTS</div>
-      <p class="art3d-desc">
-        A deep dive into my 3D asset creation workflow crafted specifically for retro PSX and VHS psychological horror games. Every model is built from scratch in Blender &mdash; combining tight low-poly geometry budgets with hand-mapped UV textures, authentic cultural Moroccan details, and customized retro shaders.
-      </p>
-
-      <ul class="art3d-features">
-        <li><strong>Blender 3D Modeling Reel:</strong> Realtime viewport showcase of custom low-poly game assets, vertex structures, and UV mapping workflows</li>
-        <li><strong>Authentic Prop Design:</strong> Moroccan banknotes (200 MAD), Doliprane pharmaceutical boxes, Casio calculators, POS cash registers, and industrial AC compressor units</li>
-        <li><strong>Environmental Architecture:</strong> Traditional Moroccan salons (seddari seating), liminal metro transit platforms, coastal limbo shores, and modular convenience store shelves</li>
-        <li><strong>Low-Poly Optimization:</strong> Strict polygon budgets, efficient draw calls, and vertex snapping designed to evoke authentic 90s hardware aesthetics</li>
-        <li><strong>Retro Texturing &amp; Shading:</strong> Photo-sampled textures, custom diffuse mapping, retro dithering, and CRT post-processing in Unity 6</li>
-      </ul>
-
-      <div class="art3d-stack">
-        <span class="stack-tag">Blender</span>
-        <span class="stack-tag">Low-Poly PSX</span>
-        <span class="stack-tag">UV Mapping</span>
-        <span class="stack-tag">Texture Painting</span>
-        <span class="stack-tag">Photoshop</span>
-        <span class="stack-tag">Substance</span>
-        <span class="stack-tag">Unity 6</span>
       </div>
 
-      <div class="art3d-notes">
-        <span class="art3d-note-icon">&#9670;</span>
-        <span>Use the carousel controls or click <strong>&#x26F6;</strong> to inspect high-resolution models and turntable clips in fullscreen mode.</span>
-      </div>
-    </div>
-
-    <!-- 3D Art Slideshow Carousel -->
-    <div class="art3d-visual">
-      <figure class="project-cover project-cover-featured art3d-cover">
-        <div class="media-carousel" data-carousel data-title="3D Art & Modeling Reel">
-          <!-- Slide 1: Blender 3D Skills Reel Video -->
-          <div class="carousel-slide is-active" data-caption="Blender 3D Modeling Reel — Low-Poly PSX Props, UV Mapping &amp; Shading (Moroccan Currency, Doliprane, Casio, POS, AC Unit)">
-            <video src="assets/3D/PSX_Arts.mp4" controls playsinline muted loop preload="metadata" aria-label="Blender PSX 3D Modeling Reel"></video>
-            <div class="carousel-slide-tag">BLENDER 3D REEL</div>
-          </div>
-
-          <!-- Slide 2: Moroccan Domestic Salon 3D Environment -->
-          <div class="carousel-slide" data-caption="Moroccan Domestic Salon — Seddari Seating, Table &amp; Low-Poly Interior Architecture (Blender &amp; Unity)">
-            <img src="assets/AsAKid/asakid-2.png" class="psx-filter" alt="Moroccan Domestic Salon — Seddari Seating &amp; Interior Architecture" loading="lazy">
-            <div class="carousel-slide-tag">ENVIRONMENT MODELING</div>
-          </div>
-
-          <!-- Slide 3: Coastal Limbo Shoreline & Lighting -->
-          <div class="carousel-slide" data-caption="As A Kid: Barzakh — Coastal Limbo Environment, Terrain &amp; Atmospheric Lighting (Unity 6 &amp; Blender)">
-            <img src="assets/barzakh/barzakh-2.png" class="psx-filter" alt="As A Kid: Barzakh — Coastal Limbo Landscape" loading="lazy">
-            <div class="carousel-slide-tag">LEVEL DESIGN &amp; LIGHTING</div>
-          </div>
-
-          <!-- Slide 4: Liminal Subway Transit Corridor -->
-          <div class="carousel-slide" data-caption="Liminal Subway Platform — Metro Station Modular Architecture &amp; Tile Texturing">
-            <img src="assets/barzakh/barzakh-3.png" class="psx-filter" alt="Liminal Subway Transit Platform Architecture" loading="lazy">
-            <div class="carousel-slide-tag">MODULAR ARCHITECTURE</div>
-          </div>
-
-          <!-- Slide 5: Pharmacy Supermarket Interior & Prop Shelves -->
-          <div class="carousel-slide" data-caption="Pharmacy Supermarket — Modular Shelving &amp; Custom Medicine Box 3D Props">
-            <img src="assets/pharmacy/pharmacy-1.png" class="psx-filter" alt="Pharmacy Supermarket Interior &amp; Medicine Shelves" loading="lazy">
-            <div class="carousel-slide-tag">PROP INTEGRATION</div>
-          </div>
-
-          <!-- Slide 6: Traditional Moroccan Hallway & Doorway -->
-          <div class="carousel-slide" data-caption="Moroccan Hallway — Traditional Rugs, Doorways &amp; PSX Domestic Assets">
-            <img src="assets/AsAKid/asakid-1.png" class="psx-filter" alt="Moroccan Hallway Interior with Traditional Rugs" loading="lazy">
-            <div class="carousel-slide-tag">RETRO TEXTURING</div>
-          </div>
-
-          <!-- Slide 7: In-Engine Composition & Realtime Lighting -->
-          <div class="carousel-slide" data-caption="Unity 6 Engine Composition — In-Engine Asset Assembling &amp; Post-Processing">
-            <img src="assets/barzakh/barzakh-4.png" class="psx-filter" alt="Unity 6 In-Engine Scene Composition" loading="lazy">
-            <div class="carousel-slide-tag">ENGINE COMPOSITION</div>
-          </div>
-
-          <!-- Further 3D Art: Drop your renders/videos in assets/3D/ and add a .carousel-slide item here -->
-        </div>
-      </figure>
     </div>
   </div>
 
-  <!-- 3D Art Pillars / Category Highlights -->
-  <div class="art3d-grid certs-row">
-    <div class="art3d-subcard reveal">
-      <div class="art3d-tag">Props / Blender</div>
-      <h4 class="art3d-subcard-title">Authentic PSX Prop Modeling</h4>
-      <p class="art3d-subcard-desc">
-        Crafting recognizable everyday items &mdash; from Moroccan 200 DH bills and Doliprane boxes to Casio calculators and checkout cash registers &mdash; with meticulous silhouette work and low-poly efficiency.
-      </p>
-      <div class="art3d-pill-row">
-        <span class="art3d-pill">Prop Design</span>
-        <span class="art3d-pill">Silhouettes</span>
-        <span class="art3d-pill">Low Poly</span>
-      </div>
-    </div>
-
-    <div class="art3d-subcard reveal">
-      <div class="art3d-tag">Environments / Architecture</div>
-      <h4 class="art3d-subcard-title">Atmospheric Environments</h4>
-      <p class="art3d-subcard-desc">
-        Building evocative spaces that evoke nostalgia and dread: authentic Moroccan family salons, eerie liminal subway stations, misty shorelines, and claustrophobic pharmacy aisles.
-      </p>
-      <div class="art3d-pill-row">
-        <span class="art3d-pill">Modular Kits</span>
-        <span class="art3d-pill">Liminal Spaces</span>
-        <span class="art3d-pill">Lighting</span>
-      </div>
-    </div>
-
-    <div class="art3d-subcard reveal">
-      <div class="art3d-tag">Materials / Textures</div>
-      <h4 class="art3d-subcard-title">Retro UV Mapping &amp; Shading</h4>
-      <p class="art3d-subcard-desc">
-        Transforming real-world photo references into crisp PSX texture atlases. Optimized UV unwrapping with affine texture warping and retro dithering shaders inside Unity.
-      </p>
-      <div class="art3d-pill-row">
-        <span class="art3d-pill">UV Atlases</span>
-        <span class="art3d-pill">Pixel Shaders</span>
-        <span class="art3d-pill">CRT Style</span>
-      </div>
-    </div>
-
-    <div class="art3d-subcard reveal">
-      <div class="art3d-tag">Pipeline / Future Works</div>
-      <h4 class="art3d-subcard-title">Game-Ready 3D Pipeline</h4>
-      <p class="art3d-subcard-desc">
-        Clean topology, centered pivot points, unified scaling, custom collider meshes, and ready-to-animate hierarchies seamlessly exported from Blender into Unity 6.
-      </p>
-      <div class="art3d-pill-row">
-        <span class="art3d-pill">FBX Pipeline</span>
-        <span class="art3d-pill">Colliders</span>
-        <span class="art3d-pill">Unity 6 Ready</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROTOTYPES & SYSTEMS -->
-<section id="systems">
-  <div class="section-header reveal">
-    <span class="section-num">03 //</span>
-    <h2 class="section-title">Prototypes & Systems</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <!-- Featured: First-Person Retro Driving System -->
-  <div class="system-featured reveal">
-    <div class="system-card system-card-featured">
-      <div class="system-tag">Latest / Driving / Horror</div>
-      <h3 class="system-name">FIRST-PERSON RETRO DRIVING SYSTEM</h3>
-      <p class="system-desc">
-        A lightweight, atmospheric first-person vehicle controller inspired by narrative horror games like Fears to Fathom. Built to prioritize player immersion over heavy physics — you feel the car, not the simulation.
-      </p>
-      <ul class="system-features">
-        <li>Simulated 5-gear RPM transmission</li>
-        <li>Functional dashboard gauges & smooth steering wheel rotation</li>
-        <li>Dynamic ground normal alignment for natural terrain contact</li>
-        <li>Interactive night lighting for atmospheric night drives</li>
-      </ul>
-      <div class="system-stack">
-        <span class="stack-tag">Unity</span>
-        <span class="stack-tag">C#</span>
-      </div>
-    </div>
-    <div class="system-video">
-      <video src="assets/CarLinkedin.mp4" controls muted loop playsinline preload="metadata" aria-label="First-person retro driving system demo video"></video>
-    </div>
-  </div>
-
-  <div class="systems-grid certs-row">
-    <div class="system-card reveal">
-      <div class="system-tag">Narrative / Choices</div>
-      <h3 class="system-name">DIALOGUE SYSTEM</h3>
-      <p class="system-desc">
-        Reusable branching dialogue system inspired by narrative horror games like Fears to Fathom. Supports choice-based conversations, timed responses, text pacing, and event triggering based on player decisions to create immersive storytelling moments.
-      </p>
-    </div>
-
-    <div class="system-card reveal">
-      <div class="system-tag">Phone / Messaging</div>
-      <h3 class="system-name">INTERACTIVE SMS SYSTEM</h3>
-      <p class="system-desc">
-        In-game mobile phone messaging system that simulates real-time SMS conversations. Includes message delays, player reply options, notification events, and branching outcomes tied to gameplay progression and story events.
-      </p>
-    </div>
-
-    <div class="system-card reveal">
-      <div class="system-tag">Narrative Pacing</div>
-      <h3 class="system-name">STORYTELLING SYSTEM</h3>
-      <p class="system-desc">
-        Modular narrative delivery system used to control pacing, environmental storytelling, text events, and scene progression. Designed to synchronize story beats with player actions, triggers, and atmospheric elements.
-      </p>
-    </div>
-
-    <div class="system-card reveal">
-      <div class="system-tag">Interaction / Inventory</div>
-      <h3 class="system-name">ITEM PICKUP SYSTEM</h3>
-      <p class="system-desc">
-        Flexible item interaction and pickup system allowing players to collect, inspect, and store objects. Supports object highlighting, inventory integration, and event triggers tied to collected items.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-header reveal">
-    <span class="section-num">04 //</span>
-    <h2 class="section-title">Skills</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="skills-layout">
-
-    <div class="skill-group reveal">
-      <div class="skill-group-icon">🎮</div>
-      <div class="skill-group-name">Game Dev</div>
-      <ul class="skill-list">
-        <li class="skill-item">
-          <span class="skill-name">Unity 3D/2D</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.9"></div></div>
-        </li>
-        <li class="skill-item">
-          <span class="skill-name">C#</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.85"></div></div>
-        </li>
-        <li class="skill-item">
-          <span class="skill-name">Level Design</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.8"></div></div>
-        </li>
-        <li class="skill-item">
-          <span class="skill-name">Game Logic</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.82"></div></div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="skill-group reveal">
-      <div class="skill-group-icon">🎨</div>
-      <div class="skill-group-name">3D & Art</div>
-      <ul class="skill-list">
-        <li class="skill-item">
-          <span class="skill-name">Blender</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.85"></div></div>
-        </li>
-        <li class="skill-item">
-          <span class="skill-name">Aseprite</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.8"></div></div>
-        </li>
-        <li class="skill-item">
-          <span class="skill-name">Photoshop</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.75"></div></div>
-        </li>
-        <li class="skill-item">
-          <span class="skill-name">Substance</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.65"></div></div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="skill-group reveal">
-      <div class="skill-group-icon">💻</div>
-      <div class="skill-group-name">Programming</div>
-      <ul class="skill-list">
-        <li class="skill-item">
-          <span class="skill-name">HTML/CSS</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.8"></div></div>
-        </li>
-        <li class="skill-item">
-          <span class="skill-name">LUA</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.7"></div></div>
-        </li>
-        <li class="skill-item">
-          <span class="skill-name">GO</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.65"></div></div>
-        </li>
-        <li class="skill-item">
-          <span class="skill-name">Python</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.6"></div></div>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-header reveal">
-    <span class="section-num">05 //</span>
-    <h2 class="section-title">Experience</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">05.2025 - 06.2025</div>
-      <div class="timeline-role">Digital Marketing Assistant</div>
-      <div class="timeline-org">BG Marketing - Meknes</div>
-      <ul class="timeline-details">
-        <li>Worked with Google Analytics & WordPress for campaign performance tracking</li>
-        <li>Assisted with content creation and visual materials using Canva & Photoshop</li>
-        <li>Improved site page speed by compressing images and cleaning unused plugins</li>
-      </ul>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">02.2025 - 03.2025</div>
-      <div class="timeline-role">Web Developer</div>
-      <div class="timeline-org">Driving School - Meknes</div>
-      <ul class="timeline-details">
-        <li>Developed a reservation website for a local driving school</li>
-        <li>Built the interface using HTML and CSS with a usability-first approach</li>
-        <li>Delivered a clean, simple layout focused on ease of use</li>
-      </ul>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2024 - 2025</div>
-      <div class="timeline-role">Customer Service Chatbot</div>
-      <div class="timeline-org">ACCD Al Akhawayn — Flask / Python</div>
-      <ul class="timeline-details">
-        <li>Developed as a final year project for the Web & Multimedia Development programme at ACCD Al Akhawayn</li>
-        <li>Built a customer service chatbot using Python and Flask as the backend framework</li>
-        <li>Designed conversational flows to handle common user queries and automate responses</li>
-        <li>Integrated a REST API layer to connect the chatbot interface with backend logic</li>
-      </ul>
-      <div class="project-links">
-        <a href="https://github.com/Yassir-Essabbahy/Flask-Chatbot" class="project-link" target="_blank" rel="noopener" aria-label="Source code for Customer Service Chatbot">Source Code</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="section-header reveal">
-    <span class="section-num">06 //</span>
-    <h2 class="section-title">Education</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="edu-grid">
-    <div class="edu-card reveal">
-      <div class="edu-date">11/2025 - 05/2026</div>
-      <div class="edu-degree">Gaming Bootcamp - Game Development</div>
-      <div class="edu-school">Geeks Institute / LaStartupStation</div>
-    </div>
-    <div class="edu-card reveal">
-      <div class="edu-date">09/2025 - 11/2026</div>
-      <div class="edu-degree">Programming Bootcamp</div>
-      <div class="edu-school">Zone01 Oujda</div>
-    </div>
-    <div class="edu-card reveal">
-      <div class="edu-date">09/2024 - 07/2025</div>
-      <div class="edu-degree">Qualification Certificate - Web & Multimedia Development</div>
-      <div class="edu-school">ACCD Al Akhawayn</div>
-    </div>
-    <div class="edu-card reveal">
-      <div class="edu-date">09/2022 - 07/2024</div>
-      <div class="edu-degree">Specialized Technician Diploma - Vehicles & Spare Parts</div>
-      <div class="edu-school">OFPPT</div>
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-  <div class="section-header reveal">
-    <span class="section-num">07 //</span>
-    <h2 class="section-title">Certifications</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="certs-row reveal">
-    <div class="cert-badge">Microsoft Office 365 - Cisco</div>
-    <div class="cert-badge">Hardware Basics - Cisco</div>
-    <div class="cert-badge">Full-Stack Development - Udemy</div>
-    <div class="cert-badge">Game Developer - Geeks Institute</div>
-    <div class="cert-badge">Python - Udemy</div>
-    
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-header reveal" style="justify-content:center; text-align:center;">
-    <span class="section-num">08 //</span>
-    <h2 class="section-title">Get In Touch</h2>
-  </div>
-
-  <p class="reveal" style="font-size:18px; font-weight:300; color:var(--text-dim); max-width:500px; margin:0 auto 8px; text-align:center; line-height:1.7;">
-    Open to game development roles, freelance projects, and creative collaborations.
-  </p>
-
-  <div class="reveal" style="text-align:center;">
-    <a href="mailto:moroccoyassir@gmail.com" class="contact-email">moroccoyassir@gmail.com</a>
-  </div>
-
-  <!-- Instagram Dev Log Card -->
-  <div class="insta-card reveal">
-    <div class="insta-card-inner">
-      <div class="insta-icon-wrap">
-        <svg class="insta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" stroke-width="1.6"/>
-          <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6"/>
-          <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-        </svg>
-      </div>
-      <div class="insta-card-text">
-        <div class="insta-card-label">DEVLOG JOURNEY</div>
-        <div class="insta-card-handle">@thats_yessir</div>
-        <div class="insta-card-sub">Building games in public — one post at a time.</div>
-      </div>
-      <div class="insta-card-right">
-        <div class="insta-followers">
-          <span class="insta-count">27K</span>
-          <span class="insta-count-label">followers</span>
-        </div>
-        <a href="https://www.instagram.com/thats_yessir" target="_blank" rel="noopener noreferrer" class="insta-follow-btn">Follow</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="contact-links reveal">
-    <a href="https://www.linkedin.com/in/yessir001/" class="contact-link" target="_blank">LinkedIn</a>
-    <a href="https://www.instagram.com/thats_yessir" class="contact-link" target="_blank">Instagram</a>
-    <a href="tel:+212644871790" class="contact-link">+212 6 44 87 17 90</a>
-    <a href="#projects" class="contact-link">View Projects</a>
-    <a href="#art3d" class="contact-link">3D Art</a>
-  </div>
-</section>
-
-<!-- LIGHTBOX MODAL FOR SCREENSHOTS & VIDEOS -->
-<div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Media lightbox modal">
-  <button class="lightbox-close" type="button" aria-label="Close media modal">&times;</button>
-  <button class="lightbox-nav-btn lightbox-prev" type="button" aria-label="Previous slide">&lsaquo;</button>
-  <button class="lightbox-nav-btn lightbox-next" type="button" aria-label="Next slide">&rsaquo;</button>
-  <div class="lightbox-content">
-    <div class="lightbox-header">
-      <span class="lightbox-title" id="lightbox-title">Game Screenshot</span>
-      <span class="lightbox-counter" id="lightbox-counter">1 / 1</span>
-    </div>
-    <div class="lightbox-img-wrap">
-      <img src="" alt="" class="lightbox-img" id="lightbox-img">
-      <video id="lightbox-video" class="lightbox-video" controls playsinline loop style="display:none;"></video>
-    </div>
-    <div class="lightbox-caption" id="lightbox-caption"></div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <span class="footer-text">(c) 2026 Yassir ESSABAHY - All rights reserved</span>
-  <span class="footer-logo">YE.</span>
-</footer>
-
-<script src="script.js"></script>
+  <!-- Scripts -->
+  <script src="projects.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
